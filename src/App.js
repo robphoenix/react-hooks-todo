@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Pane, Heading, majorScale } from 'evergreen-ui'
 
 import TodoForm from './components/TodoForm.js'
 import TodoList from './components/TodoList.js'
+import useTodos from './hooks/useTodos.js'
 
 const App = () => {
-  const [todos, setTodos] = useState(['learn CSS Grid', 'order concrete'])
-
-  const addTodo = todo => {
-    setTodos([...todos, todo])
-  }
-
-  const deleteTodo = index => {
-    setTodos(todos.filter((_, i) => i !== index))
-  }
+  const defaultTodos = ['Learn CSS Grid', 'Order Concrete']
+  const { todos, addTodo, deleteTodo } = useTodos(defaultTodos)
 
   return (
     <div>
