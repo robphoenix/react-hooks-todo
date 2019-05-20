@@ -1,25 +1,23 @@
 import React, { useState } from 'react'
 import { TextInputField } from 'evergreen-ui'
 
-const TodoForm = () => {
+const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState('')
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    addTodo(value)
+    setValue('')
+  }
+
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault()
-        console.log({ value })
-        setValue('')
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <TextInputField
         value={value}
         label="New Todo"
         placeholder="What needs getting done?"
         width={300}
-        onChange={e => {
-          setValue(e.target.value)
-        }}
+        onChange={e => setValue(e.target.value)}
       />
     </form>
   )
