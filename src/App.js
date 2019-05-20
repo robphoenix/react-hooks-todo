@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Heading } from 'evergreen-ui'
+import styled from '@emotion/styled/macro'
 
-function App() {
+import TodoForm from './components/TodoForm.js'
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+`
+
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+`
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header>
+        <Heading is="h1" size={900} marginTop="default">
+          TODO
+        </Heading>
+      </Header>
+      <Section>
+        <TodoForm />
+      </Section>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
