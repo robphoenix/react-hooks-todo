@@ -1,19 +1,14 @@
 import React from 'react'
-import { UnorderedList, ListItem, Pane, Text, Icon } from 'evergreen-ui'
+import { UnorderedList, ListItem } from 'evergreen-ui'
+
+import Todo from './Todo.js'
 
 const TodoList = ({ todos, deleteTodo }) => {
   return (
-    <UnorderedList width={200}>
+    <UnorderedList width={200} listStyle="none">
       {todos.map((todo, i) => (
         <ListItem key={`todo-${todo}`}>
-          <Pane
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Text size={500}>{todo}</Text>{' '}
-            <Icon icon="cross" onClick={() => deleteTodo(i)} />
-          </Pane>
+          <Todo todo={todo} deleteTodo={deleteTodo} index={i} />
         </ListItem>
       ))}
     </UnorderedList>

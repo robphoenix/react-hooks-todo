@@ -5,7 +5,7 @@ import TodoForm from './components/TodoForm.js'
 import TodoList from './components/TodoList.js'
 
 const App = () => {
-  const [todos, setTodos] = useState(['do something', 'order concrete'])
+  const [todos, setTodos] = useState(['learn CSS Grid', 'order concrete'])
 
   const addTodo = todo => {
     setTodos([...todos, todo])
@@ -19,14 +19,10 @@ const App = () => {
     <div>
       <Pane display="flex" justifyContent="center" marginBottom={majorScale(2)}>
         <Heading is="h1" size={900} marginTop="default">
-          TODO
+          TODOS
         </Heading>
       </Pane>
-      <Pane
-        display="flex"
-        alignItems="center"
-        flexDirection="column"
-      >
+      <Pane display="flex" alignItems="center" flexDirection="column">
         <TodoForm addTodo={addTodo} />
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </Pane>
